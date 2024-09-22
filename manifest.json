@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "DyslexiAid",
+  "version": "2.0",
+  "description": "A tool to assist users with dyslexia by magnifying text, reading highlighted text aloud, and adjusting text spacing.",
+  "permissions": ["storage", "activeTab", "tts", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
