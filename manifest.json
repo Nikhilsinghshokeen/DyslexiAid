@@ -1,19 +1,16 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "DyslexiAid",
-  "version": "2.0",
-  "description": "A tool to assist users with dyslexia by magnifying text, reading highlighted text aloud, and adjusting text spacing.",
-  "permissions": ["storage", "activeTab", "tts", "scripting"],
+  "version": "1.0",
+  "description": "An extension to apply a dyslexia-friendly font.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ],
   "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {
@@ -21,5 +18,14 @@
       "js": ["content.js"],
       "css": ["styles.css"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon48.png"
+  }
 }
